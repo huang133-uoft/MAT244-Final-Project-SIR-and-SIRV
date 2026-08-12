@@ -9,7 +9,7 @@ D = 10          # days used to estimate current I
 WINDOW_LEN = 7  # weekly rolling window
 
 # Euler step size, in days
-DT = 0.25
+DT = 1
 
 BETA_MIN = 0.01
 BETA_MAX = 1.50
@@ -316,10 +316,11 @@ def main():
     plt.figure(figsize=(12, 8))
     plt.plot(all_dates, real_smoothed, label="Observed new cases (7-day average)")
     plt.plot(all_dates, predicted, label="SIRV Euler prediction")
-    plt.title("SIRV Model Using Forward Euler Method\n"
-              f"MAE: {mae:.0f}, "
-              f"RMSE: {rmse:.0f}, "
-              f"Euler step = {DT} day")
+    plt.title("SIRV Model Using Euler's Method Prediction")
+    # plt.title("SIRV Model Using Forward Euler Method\n"
+              # f"MAE: {mae:.0f}, "
+              # f"RMSE: {rmse:.0f}, "
+              # f"Euler step = {DT} day")
     plt.xlabel("Date")
     plt.ylabel("Daily New Cases")
     plt.legend()
